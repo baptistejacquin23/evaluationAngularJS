@@ -1,0 +1,51 @@
+<div class="container" style="text-align: center" ng-show="restaurant">
+    <h2>Détail</h2>
+    <h5>Nom : {{restaurant.name}}</h5>
+    <h5>Adresse : {{restaurant.adresse}}</h5>
+    <h5>Proriétaire : {{restaurant.proprio}}</h5>
+    <h5>Email : {{restaurant.mail}}</h5>
+
+    <div class="form-style-2 container center">
+        <form name="myform" novalidate>
+            <div ng-show="myform.name.$invalid && myform.name.$dirty || myform.name === '' || monrestaurant.name === '' "
+                 class="container alert alert-warning" role="alert"> Le nom du restaurant est obligatoire
+            </div>
+            <label for="name"><span>Nom<span class="required">*</span></span>
+                <input placeholder="Veuillez renseigner le nom du restaurant" name="name" class="input-field" style="text-align: center" name="name" type="text" ng-model="monrestaurant.name" required>
+            </label>
+            <div ng-show="myform.adresse.$invalid && myform.adresse.$dirty || monrestaurant.adresse === '' "
+                 class="container alert alert-warning" role="alert"> L'adresse du restaurant est obligatoire
+            </div>
+            <label for="adresse"><span>Adresse <span class="required input-field">*</span></span>
+                <input type="text" class="input-field" style="text-align: center" name="adresse"
+                       ng-model="monrestaurant.adresse"
+                       placeholder="Veuillez renseigner une adresse" required>
+            </label>
+            <div ng-show="myform.proprio.$invalid && myform.proprio.$dirty || monrestaurant.proprio == ''"
+                 class="container alert alert-warning" role="alert"> Le Nom du propiétaire du restaurant est obligatoire
+            </div>
+            <label for="proprio"><span>Nom du propriétaire <span class="required input-field">*</span></span>
+                <input type="text" class="input-field" style="text-align: center" name="proprio"
+                       ng-model="monrestaurant.proprio"
+                       placeholder="Veuillez renseigner le nom du propriétaire" required>
+            </label>
+            <div ng-show="myform.mail.$invalid && myform.mail.$dirty || monrestaurant.mail == ''"
+                 class="container alert alert-warning" role="alert"> L'email du restaurant est obligatoire
+            </div>
+            <label for="mail"><span>Email <span class="required input-field">*</span></span>
+                <input type="text" class="input-field" style="text-align: center" name="mail"
+                       ng-model="monrestaurant.mail"
+                       placeholder="Veuillez renseigner l'email du restaurant" required>
+            </label>
+            <div ng-show="myform.$invalid" class="container alert alert-warning" role="alert">
+                Les données du formulaire ne sont pas valide
+            </div><br>
+
+            <button class="btn btn-warning" ng-click="annuler()"> Annuler</button>
+            <button class="btn btn-success" ng-click="valider()" ng-disabled="myform.$invalid"> Valider</button>
+            <button class="btn btn-danger" ng-click="supprimer()" ng-disabled="myform.$invalid"> Supprimer</button>
+        </form>
+    </div>
+
+</div>
+

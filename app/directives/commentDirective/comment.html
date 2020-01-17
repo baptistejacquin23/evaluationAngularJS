@@ -1,0 +1,38 @@
+<div class="container" style="text-align: center">
+    <br><h1>Restaurant : {{restaurant.name}} </h1>
+    <br><h5>Dernier commentaire : </h5>
+    <p>{{restaurant.comment}}</p>
+
+    <div class="form-style-2 container center">
+        <form name="myform" novalidate>
+            <div ng-show="myform.date.$invalid && myform.date.$dirty || monrestaurant.date == ''" class="container alert alert-warning" role="alert">
+                La date est obligatoire
+            </div>
+            <label for="date"><span>Dernière visite<span class="required">*</span></span>
+                <input placeholder="Veuillez renseigner la date de votre dernière visite" name="date" class="input-field" style="text-align: center" name="date" type="date" ng-model="monrestaurant.date" required>
+            </label>
+            <div ng-show="myform.note.$invalid && myform.note.$dirty || monrestaurant.note === null "
+                 class="container alert alert-warning" role="alert"> La note est obligatoire et doit être comprise entre 0 et 5
+            </div>
+            <label for="note"><span>Note <span class="required input-field">*</span></span>
+                <input type="number" class="input-field" style="text-align: center" name="note"
+                       ng-model="monrestaurant.note" min="0" max="5"
+                       placeholder="Veuillez renseigner une note entre 0 et 5" required>
+            </label>
+            <div ng-show="myform.comment.$invalid && myform.comment.$dirty || monrestaurant.comment == ''"
+                 class="container alert alert-warning" role="alert"> Le commentaire est obligatoire
+            </div>
+            <label for="comment"><span>Commentaire <span class="required">*</span></span><textarea name="comment" class="textarea-field" ng-model="monrestaurant.comment" maxlength="255" required></textarea></label>
+
+            <div ng-show="myform.$invalid" class="container alert alert-warning" role="alert">
+                Les données du formulaire ne sont pas valide
+            </div><br>
+
+            <button class="btn btn-warning" ng-click="annuler()"> Annuler</button>
+            <button class="btn btn-success" ng-click="valider()" ng-disabled="myform.$invalid"> Valider</button>
+
+        </form>
+    </div>
+
+</div>
+

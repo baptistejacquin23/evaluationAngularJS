@@ -1,0 +1,25 @@
+<div class="container">
+    <table class="table zui-table zui-table-rounded">
+        <thead class="thead-dark">
+        <tr>
+            <th class="text-center"> Nom</th>
+            <th class="text-center"> Adresse</th>
+            <th class="text-center"> Date dernière visite</th>
+            <th class="text-center"> Note dernière visite</th>
+            <th class="text-center"> Page de commentaire</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-class="{sel: $index == selected}" ng-repeat="restaurant in restaurants | orderBy: '-note'| limitTo: 2"
+            ng-click="selectResto(restaurant,$index)">
+            <td class="text-center"> {{restaurant.name}}</td>
+            <td class="text-center"> {{restaurant.adresse}}</td>
+            <td class="text-center"> {{ restaurant.date | date: 'dd-M-yyyy'}}</td>
+            <td class="text-center"> {{restaurant.note}}</td>
+            <td class="text-center"> <a href="/commentaire/{{restaurant}}">Commenter {{restaurant.name}}</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
